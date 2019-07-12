@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#"
+      th:action="@{/process}"
+      th:object="${course}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    First Name :<input type="text" th:field="*{fname}" />
+    <span th:if="${#fields.hasErrors('fname')}"
+          th:errors="*{fname}"></span><br />
+    Last Name :<input type="text" th:field="*{lname}" />
+    <span th:if="${#fields.hasErrors('lname')}"
+          th:errors="*{lname}"></span><br />
+    Street Address :<textarea rows="3" th:field="*{stAdd}" />
+    <span th:if="${#fields.hasErrors('stAdd')}"
+          th:errors="*{stAdd}"></span><br />
+    Zipcode :<input type="number" th:field="*{zipcode}" />
+    <span th:if="${#fields.hasErrors('zipcode')}"
+          th:errors="*{zipcode}"></span><br />
+    Phone Number :<input type="number" th:field="*{pnumber}" />
+    <span th:if="${#fields.hasErrors('pnumber')}"
+          th:errors="*{zipcode}"></span><br />
+
+    City :<textarea rows="3" th:field="*{city}" />
+    <span th:if="${#fields.hasErrors('city')}"
+          th:errors="*{stAdd}"></span><br />
+    Country :<textarea rows="3" th:field="*{country}" />
+    <span th:if="${#fields.hasErrors('country')}"
+          th:errors="*{stAdd}"></span><br />
+    Email :<input type="text" th:field="*{email}" />
+    <span th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}"></span><br />
+
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
